@@ -1,11 +1,21 @@
 const express = require('express')
-
 const app = express()
+
 
 app.get('/start', (req, res) => {
 
   res.send('TESTE')
 
+})
+
+app.get('/books', (req, res) => {
+
+  const books = Array.from({ length: 99999 }, (_, index) => ({
+    id: index + 1,
+    name: `book ${index + 1}`
+  }));
+
+  res.json(books)
 })
 
 
